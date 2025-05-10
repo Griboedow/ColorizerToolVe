@@ -65,6 +65,16 @@
             ],
             "messages": ["colorizerToolVE-table-cell-contextitem-label"]
         },
+		"coloris": {
+			"localBasePath": "modules/coloris",
+			"remoteExtPath": "ColorizerToolVe/modules/coloris",
+			"styles": [
+				"coloris.min.css"
+			],
+			"scripts": [
+				"coloris.min.js"
+			]
+		},
 		"ext.ColorizerToolVe.VE": {
 			"localBasePath": "modules/ext.ColorizerToolVe.VE",
 			"remoteExtPath": "ColorizerToolVe/modules/ext.ColorizerToolVe.VE",
@@ -78,8 +88,8 @@
 			"dependencies": [
 				"ext.visualEditor.mwcore",
 				"ext.visualEditor.mwtransclusion",
-
-				"ext.colorizerToolVE.styleInspector"
+				"ext.colorizerToolVE.styleInspector",
+				"coloris"
 			],
 			"messages": [
 				"ve-ColorizerToolVe-toolbar-button"
