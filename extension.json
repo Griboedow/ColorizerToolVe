@@ -1,0 +1,104 @@
+{
+	"name": "ColorizerToolVe",
+	"version": "0.1.0",
+	"author": [
+		"[https://www.mediawiki.org/wiki/User:Urfiner Urfiner]"
+	],
+	"url": "https://www.mediawiki.org/wiki/Extension:ColorizerToolVe",
+	"descriptionmsg": "ColorizerToolVe-description",
+	"license-name": "MIT",
+	"type": "parserhook",
+	"requires": {
+		"MediaWiki": ">= 1.29.0"
+	},
+	"MessagesDirs": {
+		"ColorizerToolVe": [
+			"i18n"
+		]
+	},
+	"AutoloadClasses": {
+		
+	},
+	"Hooks": {
+	
+	},
+	"ResourceFileModulePaths": {
+		"localBasePath": "modules",
+		"remoteExtPath": "ColorizerToolVe/modules"
+	},
+	"ResourceModules": {
+		"ext.colorizerToolVE.core": {
+            "scripts": [
+                "ext.colorizerToolVE.core/namespaces.js",
+                "ext.colorizerToolVE.core/utils.js",
+                "ext.colorizerToolVE.core/Listeners.js",
+                "ext.colorizerToolVE.core/preInit.js"
+            ],
+            "dependencies": ["ext.visualEditor.mwcore"]
+        },
+		"ext.colorizerToolVE.styleInspector": {
+            "scripts": [
+                "ext.colorizerToolVE.styleInspector/dm/ct.dm.ColorAnnotation.js",
+                "ext.colorizerToolVE.styleInspector/dm/ct.dm.TextColorAnnotation.js",
+                "ext.colorizerToolVE.styleInspector/dm/ct.dm.TextBgColorAnnotation.js",
+                "ext.colorizerToolVE.styleInspector/ce/ct.ce.TextBgColorAnnotation.js",
+                "ext.colorizerToolVE.styleInspector/ce/ct.ce.TextColorAnnotation.js"
+            ],
+            "styles": [
+
+			],
+            "dependencies": [
+                "ext.colorizerToolVE.core"
+            ],
+            "messages": [
+                "colorizerToolVE-annotation-textbgcolor-desc",
+                "colorizerToolVE-annotation-textcolor-desc"
+            ]
+        },
+		"ext.colorizerToolVE.tableStyle": {
+            "scripts": [
+                "ext.colorizerToolVE.tableStyle/ce/ct.ce.TableCellNode.js",
+                "ext.colorizerToolVE.tableStyle/dm/ct.dm.TableCellNode.js"
+            ],
+            "dependencies": [
+                "ext.colorizerToolVE.core"
+            ],
+            "messages": ["colorizerToolVE-table-cell-contextitem-label"]
+        },
+		"ext.ColorizerToolVe.VE": {
+			"localBasePath": "modules/ext.ColorizerToolVe.VE",
+			"remoteExtPath": "ColorizerToolVe/modules/ext.ColorizerToolVe.VE",
+			"scripts": [
+				"ve.ui.ColorizerToolVe.js",
+				"handlers/ct.ui.CeHandler.js",
+				"handlers/ct.ui.CiWatcher.js",
+				"mixins/ct.ui.mixin.GroupActionButton.js",
+				"mixins/ct.ui.mixin.GroupAnnotationButton.js"
+			],
+			"dependencies": [
+				"ext.visualEditor.mwcore",
+				"ext.visualEditor.mwtransclusion",
+
+				"ext.colorizerToolVE.styleInspector"
+			],
+			"messages": [
+				"ve-ColorizerToolVe-toolbar-button"
+			]
+		}
+		
+	},
+	"config": {},
+	"ConfigRegistry": {
+		"ColorizerToolVe": "GlobalVarConfig::newInstance"
+	},
+	"attributes": {
+		"VisualEditor": {
+			"PluginModules": [
+				"ext.colorizerToolVE.styleInspector",
+				"ext.colorizerToolVE.tableStyle",
+				"ext.ColorizerToolVe.VE"
+			]
+		}
+	},
+	"manifest_version": 2
+}
