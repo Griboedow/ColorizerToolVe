@@ -1,36 +1,37 @@
-
-
-//ve.ui.HighlightAnnotationTool = function VeUiHighlightAnnotationTool(config) {
-ve.ui.TableCellColorTool = function TableCellColorTool() {
-    ve.ui.TableCellColorTool.super.apply( this, arguments );
-};
-OO.inheritClass( ve.ui.TableCellColorTool, ve.ui.AnnotationTool );
-
-
-ve.ui.TableCellColorTool.static.name = 'highlight';
-ve.ui.TableCellColorTool.static.group = 'textStyle';
-ve.ui.TableCellColorTool.static.icon = 'highlight';
-ve.ui.TableCellColorTool.static.title = "Highlight";
-ve.ui.TableCellColorTool.static.annotation = { name: 'textStyle/textcolor' };
-ve.ui.TableCellColorTool.static.commandName = 'TableCellCommand';
-ve.ui.TableCellColorTool.static.styleAttr = 'color';
-
-
-ve.ui.toolFactory.register( ve.ui.TableCellColorTool );
-
-
-function TableCellCommand( name, options ) {
-	TableCellCommand.parent.call( this, name, null, null, options );
+function colorSetDialog( config ) {
+    colorSetDialog.super.call( this, config );
 }
-OO.inheritClass( TableCellCommand, ve.ui.Command );
+OO.inheritClass( colorSetDialog, OO.ui.ProcessDialog );
 
-TableCellCommand.prototype.execute = function( surface, args ) {
-	args = args || this.args;
+colorSetDialog.static.name = 'colorSetDialog';
+colorSetDialog.static.title = 'Choose color';
+colorSetDialog.static.actions = [
+    { action: 'ok',   label: 'ОК',   flags: ['primary'] },
+    { action: 'cancel', label: 'Cancel', flags: [] }
+];
 
+colorSetDialog.prototype.initialize = function () {
+    colorSetDialog.super.prototype.initialize.call( this );
+    // TODO: add a color picker
+    this.colorInput = new OO.ui.TextInputWidget({
+        placeholder: '#RRGGBB',
+        value: '#FFFF00'
+    });
+    this.content = new OO.ui.PanelLayout({
+        padded: true,
+        expanded: false
+    });
+    this.content.$element.append(
+        new OO.ui.FieldLayout( this.colorInput, {
+            label: 'Color code',
+            align: 'top'
+        }).$element
+    );
+    this.$body.append( this.content.$element );
+};
 
-
-    const hexColor = args[0]
-    const surfaceModel = surface.getModel(),
+function colorizeTableCell(hexColor){
+    const surfaceModel = ve.init.target.getSurface().getModel(),
         selection = surfaceModel.getSelection(),
         documentModel = surfaceModel.getDocument();
 
@@ -58,15 +59,61 @@ TableCellCommand.prototype.execute = function( surface, args ) {
 
     ve.track('activity.table', { action: 'background' });
 
-    debugger;
     return true;
+}
+
+colorSetDialog.prototype.getActionProcess = function ( action ) {
+    var dialog = this;
+    if ( action === 'ok' ) {
+        return new OO.ui.Process( function () {
+            // color validation
+            var hexColor = dialog.colorInput.getValue().trim();
+            if ( !/^#[0-9A-Fa-f]{6}$/.test( hexColor ) ) {
+                // TODO: add a message
+                // throw new OO.ui.Error( 'Incorrect color' );
+            }
+
+            colorizeTableCell(hexColor)
+            // TODO: colorize text background
+
+            ve.init.target.getSurface().execute( 'window', 'close', 'colorSetDialog', null );
+        } );
+    }
+    return colorSetDialog.super.prototype.getActionProcess.call( this, action );
 };
 
-ve.ui.commandRegistry.register(
-	new TableCellCommand( 'TableCellCommand', {
-		args: ['#FF0000'],
-		supportedSelections: [ 'linear', 'table' ]
-	} )
-);
+// Register dialog
+ve.ui.windowFactory.register( colorSetDialog );
 
 
+
+
+
+//ve.ui.HighlightAnnotationTool = function VeUiHighlightAnnotationTool(config) {
+ve.ui.BackgroundColorTool = function BackgroundColorTool() {
+    ve.ui.BackgroundColorTool.super.apply( this, arguments );
+};
+//OO.inheritClass( ve.ui.BackgroundColorTool, ve.ui.AnnotationTool );
+OO.inheritClass( ve.ui.BackgroundColorTool, OO.ui.Tool );
+
+
+ve.ui.BackgroundColorTool.static.name = 'colorize';
+ve.ui.BackgroundColorTool.static.group = 'textStyle';
+ve.ui.BackgroundColorTool.static.icon = 'highlight';
+ve.ui.BackgroundColorTool.static.title = "Background color...";
+
+ve.ui.toolFactory.register( ve.ui.BackgroundColorTool );
+
+function TableCellCommand( name, options ) {
+	TableCellCommand.parent.call( this, name, null, null, options );
+}
+OO.inheritClass( TableCellCommand, ve.ui.Command )
+
+
+ve.ui.BackgroundColorTool.prototype.onSelect = function () {
+    this.toolbar.getSurface().execute( 'window', 'open', 'colorSetDialog', null );
+};
+ 
+ve.ui.BackgroundColorTool.prototype.onUpdateState = function () {
+	this.setActive( false );
+};
