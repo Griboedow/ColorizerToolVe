@@ -85,6 +85,9 @@
 				"mixins/ct.ui.mixin.GroupActionButton.js",
 				"mixins/ct.ui.mixin.GroupAnnotationButton.js"
 			],
+			"styles": [
+				"ve.ui.ColorizerToolVe.css"
+			],
 			"dependencies": [
 				"ext.visualEditor.mwcore",
 				"ext.visualEditor.mwtransclusion",

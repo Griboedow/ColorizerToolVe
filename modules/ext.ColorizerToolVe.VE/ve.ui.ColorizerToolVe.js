@@ -13,48 +13,35 @@ colorSetDialog.static.actions = [
 colorSetDialog.prototype.initialize = function () {
     // Perform base initialization
     colorSetDialog.super.prototype.initialize.call( this );
+    this.content = new OO.ui.Layout({
+    });
 
+    // Cannot properly use OOUI for COloris, so failover to stupid HTML
+    this.idForColorisEl = 'colorisColorInput';
+    this.idForColorisParent = 'colorisColorParent';
 
-    idForColorisEl = 'colorisColorInput';
-    idForColorisParent = 'colorisColorParent';
-
-    this.colorInput = new OO.ui.InputWidget({
-        id: idForColorisEl,
+    $input = $('<input>', {
+        id: this.idForColorisEl,
+        type: 'text',
         value: "#ffcc00"
-    });
+      });
+ 
 
-    this.colorisWidget = new OO.ui.Widget({
-        id: idForColorisParent,
-    });
+    $colorisBlock = $('<div>', {
+        id: this.idForColorisParent ,
+        class: 'full-thumbnail-coloris',    
+      });
+    $colorisBlock.append($input)
+    //this.content.$element.append($colorisBlock);
 
-    // Add to the dialog content
-    this.content = new OO.ui.PanelLayout({
-        padded: true,
-        expanded: false
-    });
-
-    this.content.$element.append(
-        new OO.ui.FieldLayout( this.colorInput, {            
-            align: 'top'
-        }).$element
-    );
-    this.content.$element.append(
-        new OO.ui.FieldLayout( this.colorisWidget, {
-            align: 'top'
-        }).$element
-    );
-    
-    this.$body.append( this.content.$element );
-
-    // patch the color input element
-    //debugger
-    this.getElementDocument().getElementById(idForColorisEl).firstChild.classList.add('full-thumbnail-coloris')
-
+    this.$body.append( $colorisBlock );
 
     Coloris({
-        el: "#" + idForColorisEl + " > :first-child",
-        parent: "#" + idForColorisEl,
-   
+        el: `#${this.idForColorisEl}`,
+        parent: `#${this.idForColorisParent}`,
+
+        defaultColor: '#ffcc00',
+        wrap: false,
         inline: true,
         theme: 'pill',
         swatches: [
@@ -70,12 +57,50 @@ colorSetDialog.prototype.initialize = function () {
             '#00b4d880',
             'rgba(0,119,182,0.8)'
           ],
-        onChange: (color, input) => {
-            this.colorInput.setValue(color);
+        format: 'hex',
+        clearButton: true,
+        onChange: (color) => {
+            this.getElementDocument().getElementById(dialog.idForColorisEl).value = color;
         }
-    });
+    });  
 };
 
+colorSetDialog.prototype.getReadyProcess = function ( data ) {
+    dialog = this;
+    return colorSetDialog.super.prototype.getReadyProcess.call( this, data )
+        .next( function () {
+            Coloris.close(true);
+
+            //reopen to fix the coloris
+            Coloris({
+                el: `#${dialog.idForColorisEl}`,
+                parent: `#${dialog.idForColorisParent}`,
+        
+                defaultColor: '#ffcc00',
+                wrap: false,
+                inline: true,
+                theme: 'pill',
+                swatches: [
+                    '#264653',
+                    '#2a9d8f',
+                    '#e9c46a',
+                    'rgb(244,162,97)',
+                    '#e76f51',
+                    '#d62828',
+                    'navy',
+                    '#07b',
+                    '#0096c7',
+                    '#00b4d880',
+                    'rgba(0,119,182,0.8)'
+                  ],
+                format: 'hex',
+                clearButton: true,
+                onChange: (color) => {
+                    dialog.getElementDocument().getElementById(dialog.idForColorisEl).value = color;
+                }
+            });  
+        }, this );
+};
 
 function colorizeTableCell(hexColor){
     const surfaceModel = ve.init.target.getSurface().getModel(),
@@ -111,23 +136,23 @@ function colorizeTableCell(hexColor){
 
 colorSetDialog.prototype.getActionProcess = function ( action ) {
     var dialog = this;
+
     if ( action === 'ok' ) {
         return new OO.ui.Process( function () {
             // color validation
-            var hexColor = dialog.colorInput.getValue().trim();
-            debugger;
-            if ( !/^#[0-9A-Fa-f]{6-8}$/.test( hexColor ) ) {
-                // TODO: add a message
-                // throw new OO.ui.Error( 'Incorrect color' );
-            }
-
+            var hexColor = dialog.getElementDocument().getElementById(dialog.idForColorisEl).value.trim();
+            
             colorizeTableCell(hexColor)
             // TODO: colorize text background
 
+                    
             Coloris.close(true);
             ve.init.target.getSurface().execute( 'window', 'close', 'colorSetDialog', null );
         } );
     }
+
+    Coloris.close(true);
+    ve.init.target.getSurface().execute( 'window', 'close', 'colorSetDialog', null );
     return colorSetDialog.super.prototype.getActionProcess.call( this, action );
 };
 
