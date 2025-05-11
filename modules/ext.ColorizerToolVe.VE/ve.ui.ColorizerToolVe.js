@@ -15,6 +15,8 @@ colorSetDialog.prototype.initialize = function () {
     colorSetDialog.super.prototype.initialize.call( this );
     this.content = new OO.ui.Layout({
     });
+    
+    this.config = mw.config.get('wgColorizerToolVE');
 
     // Cannot properly use OOUI for COloris, so failover to stupid HTML
     this.idForColorisEl = 'colorisColorInput';
@@ -44,19 +46,7 @@ colorSetDialog.prototype.initialize = function () {
         wrap: false,
         inline: true,
         theme: 'pill',
-        swatches: [
-            '#264653',
-            '#2a9d8f',
-            '#e9c46a',
-            'rgb(244,162,97)',
-            '#e76f51',
-            '#d62828',
-            'navy',
-            '#07b',
-            '#0096c7',
-            '#00b4d880',
-            'rgba(0,119,182,0.8)'
-          ],
+        swatches: this.config.ColorPickerBackgroundColors,
         format: 'hex',
         clearButton: true,
         onChange: (color) => {
@@ -67,6 +57,7 @@ colorSetDialog.prototype.initialize = function () {
 
 colorSetDialog.prototype.getReadyProcess = function ( data ) {
     dialog = this;
+    
     return colorSetDialog.super.prototype.getReadyProcess.call( this, data )
         .next( function () {
             Coloris.close(true);
@@ -80,19 +71,7 @@ colorSetDialog.prototype.getReadyProcess = function ( data ) {
                 wrap: false,
                 inline: true,
                 theme: 'pill',
-                swatches: [
-                    '#264653',
-                    '#2a9d8f',
-                    '#e9c46a',
-                    'rgb(244,162,97)',
-                    '#e76f51',
-                    '#d62828',
-                    'navy',
-                    '#07b',
-                    '#0096c7',
-                    '#00b4d880',
-                    'rgba(0,119,182,0.8)'
-                  ],
+                swatches: dialog.config.ColorPickerBackgroundColors,
                 format: 'hex',
                 clearButton: true,
                 onChange: (color) => {

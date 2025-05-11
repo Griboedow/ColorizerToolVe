@@ -16,12 +16,17 @@
 			"i18n"
 		]
 	},
-	"AutoloadClasses": {
-		
-	},
-	"Hooks": {
-	
-	},
+    "AutoloadNamespaces": {
+        "MediaWiki\\Extension\\ColorizerToolVE\\": "src/"
+    },
+    "HookHandlers": {
+        "main": {
+            "class": "MediaWiki\\Extension\\ColorizerToolVE\\Hooks"
+        }
+    },
+    "Hooks": {
+        "ResourceLoaderGetConfigVars": "main"
+    },
 	"ResourceFileModulePaths": {
 		"localBasePath": "modules",
 		"remoteExtPath": "ColorizerToolVe/modules"
@@ -100,7 +105,49 @@
 		}
 		
 	},
-	"config": {},
+	"config_prefix": "wgColorizerToolVE",
+    "config": {
+        "ColorPickerTextColors": {
+            "description": "Array of object for text color",
+            "value": [
+				"#68349A",
+				"#B02418",
+				"#EA3323",
+				"#F5C342",
+				"#FFFF54",
+				"#081F5C",
+				"#2F6EBA",
+				"#4EADEA",
+				"#4EAD5B",
+				"#9FCE63",
+				"#000000",
+				"#595959",
+				"#BFBFBF",
+				"#E7E6E6",
+				"#FFFFFF"
+            ]
+        },
+        "ColorPickerBackgroundColors": {
+            "description": "Array of object for text background color also will be used for table cell backround color",
+            "value": [
+                "#DF4532",
+				"#F0918E",
+				"#67ABE5",
+				"#A3C1E3",
+				"#CDDFF6",
+				"#FFFF73",
+				"#FFFFCA",
+				"#67AB64",
+				"#A9CD71",
+				"#CBDFB8",
+				"#8A5EC2",
+				"#B99FDA",
+				"#000000",
+				"#ADAAAA",
+				"#FFFFFF"
+            ]
+        }
+    },
 	"ConfigRegistry": {
 		"ColorizerToolVe": "GlobalVarConfig::newInstance"
 	},
