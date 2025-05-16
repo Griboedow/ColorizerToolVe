@@ -61,6 +61,7 @@ colorSetDialog.prototype.getReadyProcess = function ( data ) {
     dialog = this;
     dialog.mode = data.mode;
     dialog.title.setLabel('Set color for ' + dialog.mode);
+    modeSwatches = dialog.mode === 'background' ? dialog.config.ColorPickerBackgroundColors : dialog.config.ColorPickerTextColors;
     
     return colorSetDialog.super.prototype.getReadyProcess.call( this, data )
         .next( function () {
@@ -74,7 +75,7 @@ colorSetDialog.prototype.getReadyProcess = function ( data ) {
                 wrap: false,
                 inline: true,
                 theme: 'pill',
-                swatches: dialog.config.ColorPickerBackgroundColors,
+                swatches: modeSwatches,
                 format: 'hex',
                 clearButton: true,
                 onChange: (color) => {
