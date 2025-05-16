@@ -30,6 +30,8 @@ ct.dm.ColorAnnotation.static.matchTagNames = ['span'];
 
 ct.dm.ColorAnnotation.static.inferFromView = true;
 
+ct.dm.ColorAnnotation.static.method = 'set';
+
 /**
  * CSS property in the 'style' attribute that this model corresponds to.
  *
@@ -99,7 +101,7 @@ ct.dm.ColorAnnotation.static.getCodeFromElement = function (el) {
  * @static
  * @method
  * @param {Object|Array} dataElement Linear model element or array of linear model data
- * @param {HTMLDocument} doc HTML document for creating elements
+ * @param {Document} doc HTML document for creating elements
  * @param {ve.dm.Converter} converter Converter object to optionally call .getDomSubtreeFromData() on
  * @param {Node[]} childDomElements Children that will be appended to the returned element
  * @return {HTMLElement[]} Array of DOM elements; only the first element is used; may be empty

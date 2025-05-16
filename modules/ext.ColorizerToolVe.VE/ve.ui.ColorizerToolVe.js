@@ -120,21 +120,18 @@ function colorizeText(hexColor, mode){
     switch (mode) {
         case 'text':
             annotationName = 'textStyle/textcolor';
-            attributes = { 
-                code: hexColor
-            }
             break;
         case 'background':
             annotationName = 'textStyle/bgcolor';
-            attributes = { 
-                code: hexColor
-            }
             break;
         default:
             return false;
     }
 
-
+    attributes = { 
+        type: annotationName,
+        code: hexColor
+    }
    
     // we can make it better but I am tired :)
     
