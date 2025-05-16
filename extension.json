@@ -96,7 +96,6 @@
 			"dependencies": [
 				"ext.visualEditor.mwcore",
 				"ext.visualEditor.mwtransclusion",
-				"ext.colorizerToolVE.styleInspector",
 				"coloris"
 			],
 			"messages": [

@@ -10,11 +10,11 @@ colorSetDialog.static.actions = [
     { action: 'cancel', label: 'Cancel', flags: [] }
 ];
 
+
 colorSetDialog.prototype.initialize = function () {
     // Perform base initialization
     colorSetDialog.super.prototype.initialize.call( this );
-    this.content = new OO.ui.Layout({
-    });
+    this.content = new OO.ui.Layout({});
     
     this.config = mw.config.get('wgColorizerToolVE');
 
@@ -27,19 +27,17 @@ colorSetDialog.prototype.initialize = function () {
         type: 'text',
         value: "#ffcc00"
       });
- 
 
     $colorisBlock = $('<div>', {
         id: this.idForColorisParent ,
         class: 'full-thumbnail-coloris',    
       });
     $colorisBlock.append($input)
-    //this.content.$element.append($colorisBlock);
-
+    
     this.$body.append( $colorisBlock );
 
+    // initiate here, but reopen later to fix color picker NaNNaNNan issue
     Coloris({
-        el: `#${this.idForColorisEl}`,
         parent: `#${this.idForColorisParent}`,
 
         defaultColor: '#ffcc00',
@@ -57,6 +55,8 @@ colorSetDialog.prototype.initialize = function () {
 
 colorSetDialog.prototype.getReadyProcess = function ( data ) {
     dialog = this;
+    dialog.mode = data.mode;
+    dialog.title.setLabel('Set color for ' + dialog.mode);
     
     return colorSetDialog.super.prototype.getReadyProcess.call( this, data )
         .next( function () {
@@ -64,7 +64,6 @@ colorSetDialog.prototype.getReadyProcess = function ( data ) {
 
             //reopen to fix the coloris
             Coloris({
-                el: `#${dialog.idForColorisEl}`,
                 parent: `#${dialog.idForColorisParent}`,
         
                 defaultColor: '#ffcc00',
@@ -82,6 +81,8 @@ colorSetDialog.prototype.getReadyProcess = function ( data ) {
 };
 
 function colorizeTableCell(hexColor){
+    hexColor = hexColor ? hexColor : undefined; // passing 'undefined' to remove attribute
+
     const surfaceModel = ve.init.target.getSurface().getModel(),
         selection = surfaceModel.getSelection(),
         documentModel = surfaceModel.getDocument();
@@ -113,6 +114,52 @@ function colorizeTableCell(hexColor){
     return true;
 }
 
+function colorizeText(hexColor, mode){
+    hexColor = hexColor ? hexColor : undefined; // passing 'undefined' to remove attribute
+
+    switch (mode) {
+        case 'text':
+            annotationName = 'textStyle/textcolor';
+            attributes = { 
+                code: hexColor
+            }
+            break;
+        case 'background':
+            annotationName = 'textStyle/bgcolor';
+            attributes = { 
+                code: hexColor
+            }
+            break;
+        default:
+            return false;
+    }
+
+
+   
+    // we can make it better but I am tired :)
+    
+    var surface = ve.init.target.getSurface(),
+        surfaceModel = ve.init.target.getSurface().getModel(),
+        documentModel = surfaceModel.getDocument(),
+        selection = surfaceModel.getSelection(),
+        range = selection.getCoveringRange(),
+        fragment = surfaceModel.getFragment(selection).update(),
+        annotations = fragment.getAnnotations(true);
+
+    if (!(selection instanceof ve.dm.LinearSelection)) {
+        return false;
+    }
+
+    debugger
+    fragment.annotateContent('set', annotationName, attributes)
+    
+    
+    //debugger
+
+    return true;
+}
+
+
 colorSetDialog.prototype.getActionProcess = function ( action ) {
     var dialog = this;
 
@@ -121,9 +168,14 @@ colorSetDialog.prototype.getActionProcess = function ( action ) {
             // color validation
             var hexColor = dialog.getElementDocument().getElementById(dialog.idForColorisEl).value.trim();
             
-            colorizeTableCell(hexColor)
-            // TODO: colorize text background
+            if (dialog.mode === 'background') {
+                colorizeTableCell(hexColor)
+                colorizeText(hexColor, 'background');
+            }
 
+            if (dialog.mode === 'text') {
+                colorizeText(hexColor, 'text');
+            }
                     
             Coloris.close(true);
             ve.init.target.getSurface().execute( 'window', 'close', 'colorSetDialog', null );
@@ -139,32 +191,46 @@ colorSetDialog.prototype.getActionProcess = function ( action ) {
 ve.ui.windowFactory.register( colorSetDialog );
 
 
-
-//ve.ui.HighlightAnnotationTool = function VeUiHighlightAnnotationTool(config) {
+/* Background color tool */
 ve.ui.BackgroundColorTool = function BackgroundColorTool() {
     ve.ui.BackgroundColorTool.super.apply( this, arguments );
 };
-//OO.inheritClass( ve.ui.BackgroundColorTool, ve.ui.AnnotationTool );
 OO.inheritClass( ve.ui.BackgroundColorTool, OO.ui.Tool );
 
 
-ve.ui.BackgroundColorTool.static.name = 'colorize';
+ve.ui.BackgroundColorTool.static.name = 'colorizeBackground';
 ve.ui.BackgroundColorTool.static.group = 'textStyle';
 ve.ui.BackgroundColorTool.static.icon = 'highlight';
 ve.ui.BackgroundColorTool.static.title = "Background color...";
 
 ve.ui.toolFactory.register( ve.ui.BackgroundColorTool );
 
-function TableCellCommand( name, options ) {
-	TableCellCommand.parent.call( this, name, null, null, options );
-}
-OO.inheritClass( TableCellCommand, ve.ui.Command )
-
-
 ve.ui.BackgroundColorTool.prototype.onSelect = function () {
-    this.toolbar.getSurface().execute( 'window', 'open', 'colorSetDialog', null );
+    this.toolbar.getSurface().execute( 'window', 'open', 'colorSetDialog', { mode: 'background' } );
 };
  
 ve.ui.BackgroundColorTool.prototype.onUpdateState = function () {
+	this.setActive( false );
+};
+
+/* Text color tool */
+ve.ui.TextColorTool = function TextColorTool() {
+    ve.ui.TextColorTool.super.apply( this, arguments );
+};
+OO.inheritClass( ve.ui.TextColorTool, OO.ui.Tool );
+
+
+ve.ui.TextColorTool.static.name = 'colorizeText';
+ve.ui.TextColorTool.static.group = 'textStyle';
+ve.ui.TextColorTool.static.icon = 'highlight';
+ve.ui.TextColorTool.static.title = "Text color...";
+
+ve.ui.toolFactory.register( ve.ui.TextColorTool );
+
+ve.ui.TextColorTool.prototype.onSelect = function () {
+    this.toolbar.getSurface().execute( 'window', 'open', 'colorSetDialog', { mode: 'text' } );
+};
+ 
+ve.ui.TextColorTool.prototype.onUpdateState = function () {
 	this.setActive( false );
 };
