@@ -62,7 +62,9 @@ colorSetDialog.prototype.getReadyProcess = function ( data ) {
     dialog.mode = data.mode;
     dialog.title.setLabel('Set color for ' + dialog.mode);
     modeSwatches = dialog.mode === 'background' ? dialog.config.ColorPickerBackgroundColors : dialog.config.ColorPickerTextColors;
-    
+    defaultColor = modeSwatches[0];
+    dialog.getElementDocument().getElementById(dialog.idForColorisEl).value = defaultColor;
+
     return colorSetDialog.super.prototype.getReadyProcess.call( this, data )
         .next( function () {
             Coloris.close(true);
@@ -71,7 +73,7 @@ colorSetDialog.prototype.getReadyProcess = function ( data ) {
             Coloris({
                 parent: `#${dialog.idForColorisParent}`,
         
-                defaultColor: '#ffcc00',
+                defaultColor: defaultColor,
                 wrap: false,
                 inline: true,
                 theme: 'pill',
