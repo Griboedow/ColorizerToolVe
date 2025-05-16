@@ -53,7 +53,7 @@ $wgColorizerToolVEColorPickerBackgroundColors = [
 
 Place these definitions in ```LocalSettings.php``` before loading the extension to override the default palettes.
 
-#Usage
+# Usage
 In visual edit mode go to text styles > more and you will see 2 options -- colorize text and colorize background. The last one can change both text and table cell colors. 
 
 See example in the gif below:
