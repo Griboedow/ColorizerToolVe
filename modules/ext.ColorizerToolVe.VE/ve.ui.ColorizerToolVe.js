@@ -1,3 +1,7 @@
+/*
+* For sure requires refactoring, but for now it works.
+*/
+
 function colorSetDialog( config ) {
     colorSetDialog.super.call( this, config );
 }
