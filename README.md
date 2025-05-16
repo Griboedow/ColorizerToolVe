@@ -57,7 +57,8 @@ Place these definitions in ```LocalSettings.php``` before loading the extension 
 In visual edit mode go to text styles > more and you will see 2 options -- colorize text and colorize background. The last one can change both text and table cell colors. 
 
 See example in the gif below:
-TBD
+![ColorizerToolVE](https://github.com/user-attachments/assets/8fcf8a80-66d0-4cd3-9164-8a15f6b86ec0)
+
 
 
 
