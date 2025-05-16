@@ -41,13 +41,13 @@
             ],
             "dependencies": ["ext.visualEditor.mwcore"]
         },
-		"ext.colorizerToolVE.styleInspector": {
+		"ext.colorizerToolVE.textStyle": {
             "scripts": [
-                "ext.colorizerToolVE.styleInspector/dm/ct.dm.ColorAnnotation.js",
-                "ext.colorizerToolVE.styleInspector/dm/ct.dm.TextColorAnnotation.js",
-                "ext.colorizerToolVE.styleInspector/dm/ct.dm.TextBgColorAnnotation.js",
-                "ext.colorizerToolVE.styleInspector/ce/ct.ce.TextBgColorAnnotation.js",
-                "ext.colorizerToolVE.styleInspector/ce/ct.ce.TextColorAnnotation.js"
+                "ext.colorizerToolVE.textStyle/dm/ct.dm.ColorAnnotation.js",
+                "ext.colorizerToolVE.textStyle/dm/ct.dm.TextColorAnnotation.js",
+                "ext.colorizerToolVE.textStyle/dm/ct.dm.TextBgColorAnnotation.js",
+                "ext.colorizerToolVE.textStyle/ce/ct.ce.TextBgColorAnnotation.js",
+                "ext.colorizerToolVE.textStyle/ce/ct.ce.TextColorAnnotation.js"
             ],
             "styles": [
 
@@ -84,11 +84,7 @@
 			"localBasePath": "modules/ext.ColorizerToolVe.VE",
 			"remoteExtPath": "ColorizerToolVe/modules/ext.ColorizerToolVe.VE",
 			"scripts": [
-				"ve.ui.ColorizerToolVe.js",
-				"handlers/ct.ui.CeHandler.js",
-				"handlers/ct.ui.CiWatcher.js",
-				"mixins/ct.ui.mixin.GroupActionButton.js",
-				"mixins/ct.ui.mixin.GroupAnnotationButton.js"
+				"ve.ui.ColorizerToolVe.js"
 			],
 			"styles": [
 				"ve.ui.ColorizerToolVe.css"
@@ -153,7 +149,7 @@
 	"attributes": {
 		"VisualEditor": {
 			"PluginModules": [
-				"ext.colorizerToolVE.styleInspector",
+				"ext.colorizerToolVE.textStyle",
 				"ext.colorizerToolVE.tableStyle",
 				"ext.ColorizerToolVe.VE"
 			]

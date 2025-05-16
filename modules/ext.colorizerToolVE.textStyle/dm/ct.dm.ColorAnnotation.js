@@ -1,5 +1,5 @@
 /*!
- * ColorizerToolVe DataModel ColorAnnotation abstract class.
+ * ColorizeToolVe DataModel ColorAnnotation abstract class.
  */
 
 /**

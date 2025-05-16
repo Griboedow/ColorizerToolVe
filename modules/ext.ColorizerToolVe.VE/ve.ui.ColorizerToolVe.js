@@ -128,12 +128,13 @@ function colorizeText(hexColor, mode){
             return false;
     }
 
-    attributes = { 
+    
+    element = {
         type: annotationName,
-        code: hexColor
+        attributes: { 
+            code: hexColor
+        }
     }
-   
-    // we can make it better but I am tired :)
     
     var surface = ve.init.target.getSurface(),
         surfaceModel = ve.init.target.getSurface().getModel(),
@@ -147,8 +148,9 @@ function colorizeText(hexColor, mode){
         return false;
     }
 
-    debugger
-    fragment.annotateContent('set', annotationName, attributes)
+    //debugger
+    fragment.annotateContent('clear', annotationName)
+    fragment.annotateContent('set', annotationName, element)
     
     
     //debugger
