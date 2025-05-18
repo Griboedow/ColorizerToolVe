@@ -151,13 +151,9 @@ function colorizeText(hexColor, mode){
         }
     }
     
-    var surface = ve.init.target.getSurface(),
-        surfaceModel = ve.init.target.getSurface().getModel(),
-        documentModel = surfaceModel.getDocument(),
+    var surfaceModel = ve.init.target.getSurface().getModel(),
         selection = surfaceModel.getSelection(),
-        range = selection.getCoveringRange(),
-        fragment = surfaceModel.getFragment(selection).update(),
-        annotations = fragment.getAnnotations(true);
+        fragment = surfaceModel.getFragment(selection).update();
 
     if (!(selection instanceof ve.dm.LinearSelection)) {
         return false;
