@@ -2,6 +2,9 @@
 	"@metadata": {
 		"authors": [ "Николай Кочкин" ]
 	},
-	"todolist-description": "Это расширение предоставляет возможность добавлять чеклисты на вики-страницы.",
-	"ve-todolist-toolbar-button": "Чекбокс"
+	"colorizertoolve-description": "Расширение предоставляет возможность менять цвет текста, фона и ячеек таблицы.",
+	"colorizertoolve-text-color-picker-title": "Выберите цвет текста",
+	"colorizertoolve-background-color-picker-title": "Выберите цвет фона",
+	"colorizertoolve-text-button-label": "Цвет текста",
+	"colorizertoolve-background-button-label": "Цвет фона"
 }

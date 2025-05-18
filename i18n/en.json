@@ -2,6 +2,9 @@
 	"@metadata": {
 		"authors": [ "Nikolai Kochkin" ]
 	},
-	"todolist-description": "The extension provides a unctionality to add checkboxes to wiki pages.",
-	"ve-todolist-toolbar-button": "Checkbox"
+	"colorizertoolve-description": "The extension provides a funcitonality to colorize text, background and table cells.",
+	"colorizertoolve-text-color-picker-title": "Choose color for text",
+	"colorizertoolve-background-color-picker-title": "Choose color for background",
+	"colorizertoolve-text-button-label": "Text color...",
+	"colorizertoolve-background-button-label": "Background color..."
 }

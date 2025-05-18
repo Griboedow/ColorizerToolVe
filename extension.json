@@ -5,7 +5,7 @@
 		"[https://www.mediawiki.org/wiki/User:Urfiner Urfiner]"
 	],
 	"url": "https://www.mediawiki.org/wiki/Extension:ColorizerToolVe",
-	"descriptionmsg": "ColorizerToolVe-description",
+	"descriptionmsg": "colorizertoolve-description",
 	"license-name": "MIT",
 	"type": "parserhook",
 	"requires": {
@@ -34,10 +34,7 @@
 	"ResourceModules": {
 		"ext.colorizerToolVE.core": {
             "scripts": [
-                "ext.colorizerToolVE.core/namespaces.js",
-                "ext.colorizerToolVE.core/utils.js",
-                "ext.colorizerToolVE.core/Listeners.js",
-                "ext.colorizerToolVE.core/preInit.js"
+                "ext.colorizerToolVE.core/namespaces.js"
             ],
             "dependencies": ["ext.visualEditor.mwcore"]
         },
@@ -95,7 +92,10 @@
 				"coloris"
 			],
 			"messages": [
-				"ve-ColorizerToolVe-toolbar-button"
+				"colorizertoolve-text-color-picker-title",
+				"colorizertoolve-background-color-picker-title",
+				"colorizertoolve-text-button-label",
+				"colorizertoolve-background-button-label"
 			]
 		}
 		

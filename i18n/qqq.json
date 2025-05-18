@@ -2,6 +2,9 @@
 	"@metadata": {
 		"authors": [ "Developer Name" ]
 	},
-	"todolist-description": "About this application.",
-	"ve-todolist-toolbar-button": "Option in insert menu in VisualEditor"
+	"colorizertoolve-description": "About this application.",
+	"colorizertoolve-text-color-picker-title": "Label for text color picker",
+	"colorizertoolve-background-color-picker-title": "Label for background color picker",
+	"colorizertoolve-text-button-label": "Text button label",
+	"colorizertoolve-background-button-label": "Background button label"
 }

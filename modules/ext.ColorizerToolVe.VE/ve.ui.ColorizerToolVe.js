@@ -8,7 +8,7 @@ function colorSetDialog( config ) {
 OO.inheritClass( colorSetDialog, OO.ui.ProcessDialog );
 
 colorSetDialog.static.name = 'colorSetDialog';
-colorSetDialog.static.title = 'Choose color';
+colorSetDialog.static.title = 'Choose color'; // Will be replaced later when we know the mode.
 colorSetDialog.static.actions = [
     { action: 'ok',   label: 'ОК',   flags: ['primary', 'progressive'] },
     { action: 'cancel', label: 'Cancel', flags: [] }
@@ -60,7 +60,17 @@ colorSetDialog.prototype.initialize = function () {
 colorSetDialog.prototype.getReadyProcess = function ( data ) {
     dialog = this;
     dialog.mode = data.mode;
-    dialog.title.setLabel('Set color for ' + dialog.mode);
+    switch (dialog.mode) {
+        case 'text':
+            dialog.title.setLabel(mw.message('colorizertoolve-text-color-picker-title').text());
+            break;
+        case 'background':
+            dialog.title.setLabel(mw.message('colorizertoolve-background-color-picker-title').text());
+            break;
+        default:
+            return
+    }
+    
     modeSwatches = dialog.mode === 'background' ? dialog.config.ColorPickerBackgroundColors : dialog.config.ColorPickerTextColors;
     defaultColor = modeSwatches[0];
     dialog.getElementDocument().getElementById(dialog.idForColorisEl).value = defaultColor;
@@ -122,8 +132,6 @@ function colorizeTableCell(hexColor){
 }
 
 function colorizeText(hexColor, mode){
-    hexColor = hexColor ? hexColor : undefined; // passing 'undefined' to remove attribute
-
     switch (mode) {
         case 'text':
             annotationName = 'textStyle/textcolor';
@@ -155,12 +163,10 @@ function colorizeText(hexColor, mode){
         return false;
     }
 
-    //debugger
     fragment.annotateContent('clear', annotationName)
-    fragment.annotateContent('set', annotationName, element)
-    
-    
-    //debugger
+    if (hexColor) {   
+        fragment.annotateContent('set', annotationName, element);
+    }
 
     return true;
 }
@@ -171,7 +177,6 @@ colorSetDialog.prototype.getActionProcess = function ( action ) {
 
     if ( action === 'ok' ) {
         return new OO.ui.Process( function () {
-            // color validation
             var hexColor = dialog.getElementDocument().getElementById(dialog.idForColorisEl).value.trim();
             
             if (dialog.mode === 'background') {
@@ -207,7 +212,7 @@ OO.inheritClass( ve.ui.BackgroundColorTool, OO.ui.Tool );
 ve.ui.BackgroundColorTool.static.name = 'colorizeBackground';
 ve.ui.BackgroundColorTool.static.group = 'textStyle';
 ve.ui.BackgroundColorTool.static.icon = 'highlight';
-ve.ui.BackgroundColorTool.static.title = "Background color...";
+ve.ui.BackgroundColorTool.static.title = mw.message("colorizertoolve-background-button-label").text();
 
 ve.ui.toolFactory.register( ve.ui.BackgroundColorTool );
 
@@ -229,7 +234,7 @@ OO.inheritClass( ve.ui.TextColorTool, OO.ui.Tool );
 ve.ui.TextColorTool.static.name = 'colorizeText';
 ve.ui.TextColorTool.static.group = 'textStyle';
 ve.ui.TextColorTool.static.icon = 'highlight';
-ve.ui.TextColorTool.static.title = "Text color...";
+ve.ui.TextColorTool.static.title = mw.message("colorizertoolve-text-button-label").text();
 
 ve.ui.toolFactory.register( ve.ui.TextColorTool );
 
