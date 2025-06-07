@@ -12,3 +12,7 @@
 #colorisColorInput{
   display: none;
 }
+
+.clr-picker.clr-pill {
+  width:auto;
+}
