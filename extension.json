@@ -147,7 +147,7 @@
         }
     },
 	"ConfigRegistry": {
-		"ColorizerToolVe": "GlobalVarConfig::newInstance"
+		"ColorizerToolVe": "MediaWiki\\Config\\GlobalVarConfig::newInstance"
 	},
 	"attributes": {
 		"VisualEditor": {
