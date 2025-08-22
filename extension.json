@@ -9,7 +9,10 @@
 	"license-name": "MIT",
 	"type": "parserhook",
 	"requires": {
-		"MediaWiki": ">= 1.29.0"
+		"MediaWiki": ">= 1.43.0",
+		"extensions": {
+			"VisualEditor": "*"
+		}
 	},
 	"MessagesDirs": {
 		"ColorizerToolVe": [
@@ -98,7 +101,7 @@
 				"colorizertoolve-background-button-label"
 			]
 		}
-		
+
 	},
 	"config_prefix": "wgColorizerToolVE",
     "config": {
