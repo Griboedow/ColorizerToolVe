@@ -6,7 +6,7 @@ MediaWiki page: https://www.mediawiki.org/wiki/Extension:ColorizerToolVE
 Tested on MediaWiki 1.43. Not sure about older versions.
 
 # Installation
-Installation is just a bit more complicated than usual:
+Installation is pretty standard:
 1. Download extension to the extensions folder.
 2. Load the extension in LocalSettings.php ```wfLoadExtension( 'ColorizerToolVe' );```
 
@@ -58,6 +58,7 @@ In visual edit mode go to text styles > more and you will see 2 options -- color
 
 See example in the gif below:
 ![ColorizerToolVE](https://github.com/user-attachments/assets/8fcf8a80-66d0-4cd3-9164-8a15f6b86ec0)
+
 
 
 
