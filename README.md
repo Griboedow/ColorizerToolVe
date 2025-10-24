@@ -1,6 +1,6 @@
 ColorizerToolVE is a VisualEditor extension for MediaWiki that adds a beautiful [Coloris](https://coloris.js.org/) color picker to style text, text backgrounds, and table cells with custom colors.
 
-MediaWiki page: https://www.mediawiki.org/wiki/Extension:ColorizerToolVE
+MediaWiki page: https://www.mediawiki.org/wiki/Extension:ColorizerToolVe
 
 # Prerequisites
 Tested on MediaWiki 1.43. Not sure about older versions.
@@ -13,7 +13,7 @@ Installation is pretty standard:
  # Configuration
  You can customize pre-defined colors in a color picker via these configuration parameters:
  ```php
-$wgColorizerToolVEColorPickerTextColors = [
+$wgColorizerToolVeColorPickerTextColors = [
     "#68349A",
     "#B02418",
     "#EA3323",
@@ -32,7 +32,7 @@ $wgColorizerToolVEColorPickerTextColors = [
 ];
 ```
  ```php
-$wgColorizerToolVEColorPickerBackgroundColors = [
+$wgColorizerToolVeColorPickerBackgroundColors = [
     "#DF4532",
     "#F0918E",
     "#67ABE5",
@@ -58,6 +58,7 @@ In visual edit mode go to text styles > more and you will see 2 options -- color
 
 See example in the gif below:
 ![ColorizerToolVE](https://github.com/user-attachments/assets/8fcf8a80-66d0-4cd3-9164-8a15f6b86ec0)
+
 
 
 
