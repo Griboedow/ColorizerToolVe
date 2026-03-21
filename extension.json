@@ -1,8 +1,8 @@
 {
 	"name": "ColorizerToolVe",
-	"version": "0.1.0",
+	"version": "0.1.1",
 	"author": [
-		"[https://www.mediawiki.org/wiki/User:Urfiner Urfiner]"
+		"[https://www.mediawiki.org/wiki/User:Urfiner Urfiner] (Nikolai Kochkin)"
 	],
 	"url": "https://www.mediawiki.org/wiki/Extension:ColorizerToolVe",
 	"descriptionmsg": "colorizertoolve-description",
@@ -81,7 +81,9 @@
 			"localBasePath": "modules/ext.ColorizerToolVe.VE",
 			"remoteExtPath": "ColorizerToolVe/modules/ext.ColorizerToolVe.VE",
 			"scripts": [
-				"ve.ui.ColorizerToolVe.js"
+				"ve.ui.ColorizerToolVe.dialog.js",
+				"ve.ui.ColorizerToolVe.text.js",
+				"ve.ui.ColorizerToolVe.background.js"
 			],
 			"styles": [
 				"ve.ui.ColorizerToolVe.css"
@@ -95,7 +97,9 @@
 				"colorizertoolve-text-color-picker-title",
 				"colorizertoolve-background-color-picker-title",
 				"colorizertoolve-text-button-label",
-				"colorizertoolve-background-button-label"
+				"colorizertoolve-background-button-label",
+				"colorizertoolve-dialog-ok",
+				"colorizertoolve-dialog-cancel"
 			]
 		}
 		
