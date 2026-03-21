@@ -1,0 +1,12 @@
+{
+	"@metadata": {
+		"authors": []
+	},
+	"colorizertoolve-description": "De extensie biedt functionaliteit om tekst, achtergrond en tabelcellen in te kleuren.",
+	"colorizertoolve-text-color-picker-title": "Tekstkleur kiezen",
+	"colorizertoolve-background-color-picker-title": "Achtergrondkleur kiezen",
+	"colorizertoolve-text-button-label": "Tekstkleur...",
+	"colorizertoolve-background-button-label": "Achtergrondkleur...",
+	"colorizertoolve-dialog-ok": "OK",
+	"colorizertoolve-dialog-cancel": "Annuleren"
+}

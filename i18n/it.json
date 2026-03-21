@@ -1,0 +1,12 @@
+{
+	"@metadata": {
+		"authors": []
+	},
+	"colorizertoolve-description": "L'estensione fornisce funzionalità per colorare testo, sfondo e celle di tabella.",
+	"colorizertoolve-text-color-picker-title": "Scegli il colore del testo",
+	"colorizertoolve-background-color-picker-title": "Scegli il colore dello sfondo",
+	"colorizertoolve-text-button-label": "Colore testo...",
+	"colorizertoolve-background-button-label": "Colore sfondo...",
+	"colorizertoolve-dialog-ok": "OK",
+	"colorizertoolve-dialog-cancel": "Annulla"
+}

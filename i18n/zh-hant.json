@@ -1,0 +1,12 @@
+{
+	"@metadata": {
+		"authors": []
+	},
+	"colorizertoolve-description": "此擴充功能提供為文字、背景及表格儲存格設定顏色的功能。",
+	"colorizertoolve-text-color-picker-title": "選擇文字顏色",
+	"colorizertoolve-background-color-picker-title": "選擇背景顏色",
+	"colorizertoolve-text-button-label": "文字顏色...",
+	"colorizertoolve-background-button-label": "背景顏色...",
+	"colorizertoolve-dialog-ok": "確定",
+	"colorizertoolve-dialog-cancel": "取消"
+}

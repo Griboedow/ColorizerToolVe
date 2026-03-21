@@ -1,0 +1,12 @@
+{
+	"@metadata": {
+		"authors": []
+	},
+	"colorizertoolve-description": "A bővítmény lehetőséget nyújt a szöveg, a háttér és a táblázatcellák színezésére.",
+	"colorizertoolve-text-color-picker-title": "Szövegszín kiválasztása",
+	"colorizertoolve-background-color-picker-title": "Háttérszín kiválasztása",
+	"colorizertoolve-text-button-label": "Szövegszín...",
+	"colorizertoolve-background-button-label": "Háttérszín...",
+	"colorizertoolve-dialog-ok": "OK",
+	"colorizertoolve-dialog-cancel": "Mégse"
+}

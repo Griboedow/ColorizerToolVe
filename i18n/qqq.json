@@ -1,10 +1,14 @@
 {
 	"@metadata": {
-		"authors": [ "Developer Name" ]
+		"authors": [
+			"[https://www.mediawiki.org/wiki/User:Urfiner Urfiner] (Nikolai Kochkin)"
+		]
 	},
 	"colorizertoolve-description": "About this application.",
 	"colorizertoolve-text-color-picker-title": "Label for text color picker",
 	"colorizertoolve-background-color-picker-title": "Label for background color picker",
 	"colorizertoolve-text-button-label": "Text button label",
-	"colorizertoolve-background-button-label": "Background button label"
+	"colorizertoolve-background-button-label": "Background button label",
+	"colorizertoolve-dialog-ok": "Label for the OK/confirm button in the color picker dialog.",
+	"colorizertoolve-dialog-cancel": "Label for the Cancel/dismiss button in the color picker dialog."
 }

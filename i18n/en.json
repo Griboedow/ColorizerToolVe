@@ -1,10 +1,14 @@
 {
 	"@metadata": {
-		"authors": [ "Nikolai Kochkin" ]
+		"authors": [
+			"[https://www.mediawiki.org/wiki/User:Urfiner Urfiner] (Nikolai Kochkin)"
+		]
 	},
 	"colorizertoolve-description": "The extension provides a funcitonality to colorize text, background and table cells.",
 	"colorizertoolve-text-color-picker-title": "Choose color for text",
 	"colorizertoolve-background-color-picker-title": "Choose color for background",
 	"colorizertoolve-text-button-label": "Text color...",
-	"colorizertoolve-background-button-label": "Background color..."
+	"colorizertoolve-background-button-label": "Background color...",
+	"colorizertoolve-dialog-ok": "OK",
+	"colorizertoolve-dialog-cancel": "Cancel"
 }

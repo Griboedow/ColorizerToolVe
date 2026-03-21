@@ -1,0 +1,12 @@
+{
+	"@metadata": {
+		"authors": []
+	},
+	"colorizertoolve-description": "La extensión proporciona funcionalidad para colorear texto, fondo y celdas de tabla.",
+	"colorizertoolve-text-color-picker-title": "Elegir color de texto",
+	"colorizertoolve-background-color-picker-title": "Elegir color de fondo",
+	"colorizertoolve-text-button-label": "Color de texto...",
+	"colorizertoolve-background-button-label": "Color de fondo...",
+	"colorizertoolve-dialog-ok": "Aceptar",
+	"colorizertoolve-dialog-cancel": "Cancelar"
+}

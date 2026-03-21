@@ -1,0 +1,12 @@
+{
+	"@metadata": {
+		"authors": []
+	},
+	"colorizertoolve-description": "Die Erweiterung bietet Funktionen zum Einfärben von Text, Hintergrund und Tabellenzellen.",
+	"colorizertoolve-text-color-picker-title": "Textfarbe auswählen",
+	"colorizertoolve-background-color-picker-title": "Hintergrundfarbe auswählen",
+	"colorizertoolve-text-button-label": "Textfarbe...",
+	"colorizertoolve-background-button-label": "Hintergrundfarbe...",
+	"colorizertoolve-dialog-ok": "OK",
+	"colorizertoolve-dialog-cancel": "Abbrechen"
+}

@@ -1,0 +1,12 @@
+{
+	"@metadata": {
+		"authors": []
+	},
+	"colorizertoolve-description": "Tillägget ger funktioner för att färglägga text, bakgrund och tabellceller.",
+	"colorizertoolve-text-color-picker-title": "Välj textfärg",
+	"colorizertoolve-background-color-picker-title": "Välj bakgrundsfärg",
+	"colorizertoolve-text-button-label": "Textfärg...",
+	"colorizertoolve-background-button-label": "Bakgrundsfärg...",
+	"colorizertoolve-dialog-ok": "OK",
+	"colorizertoolve-dialog-cancel": "Avbryt"
+}

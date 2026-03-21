@@ -1,0 +1,12 @@
+{
+	"@metadata": {
+		"authors": []
+	},
+	"colorizertoolve-description": "Розширення надає можливість змінювати колір тексту, фону та комірок таблиці.",
+	"colorizertoolve-text-color-picker-title": "Виберіть колір тексту",
+	"colorizertoolve-background-color-picker-title": "Виберіть колір фону",
+	"colorizertoolve-text-button-label": "Колір тексту...",
+	"colorizertoolve-background-button-label": "Колір фону...",
+	"colorizertoolve-dialog-ok": "OK",
+	"colorizertoolve-dialog-cancel": "Скасувати"
+}

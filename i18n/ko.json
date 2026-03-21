@@ -1,0 +1,12 @@
+{
+	"@metadata": {
+		"authors": []
+	},
+	"colorizertoolve-description": "이 확장 기능은 텍스트, 배경 및 표 셀에 색상을 지정하는 기능을 제공합니다.",
+	"colorizertoolve-text-color-picker-title": "글자 색상 선택",
+	"colorizertoolve-background-color-picker-title": "배경 색상 선택",
+	"colorizertoolve-text-button-label": "글자 색상...",
+	"colorizertoolve-background-button-label": "배경 색상...",
+	"colorizertoolve-dialog-ok": "확인",
+	"colorizertoolve-dialog-cancel": "취소"
+}

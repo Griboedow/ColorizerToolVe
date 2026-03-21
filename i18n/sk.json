@@ -1,0 +1,12 @@
+{
+	"@metadata": {
+		"authors": []
+	},
+	"colorizertoolve-description": "Rozšírenie poskytuje funkcie na zmenu farby textu, pozadia a buniek tabuľky.",
+	"colorizertoolve-text-color-picker-title": "Vyberte farbu textu",
+	"colorizertoolve-background-color-picker-title": "Vyberte farbu pozadia",
+	"colorizertoolve-text-button-label": "Farba textu...",
+	"colorizertoolve-background-button-label": "Farba pozadia...",
+	"colorizertoolve-dialog-ok": "OK",
+	"colorizertoolve-dialog-cancel": "Zrušiť"
+}

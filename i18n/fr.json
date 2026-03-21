@@ -1,0 +1,12 @@
+{
+	"@metadata": {
+		"authors": []
+	},
+	"colorizertoolve-description": "L'extension permet de coloriser le texte, l'arrière-plan et les cellules de tableau.",
+	"colorizertoolve-text-color-picker-title": "Choisir la couleur du texte",
+	"colorizertoolve-background-color-picker-title": "Choisir la couleur d'arrière-plan",
+	"colorizertoolve-text-button-label": "Couleur du texte...",
+	"colorizertoolve-background-button-label": "Couleur d'arrière-plan...",
+	"colorizertoolve-dialog-ok": "OK",
+	"colorizertoolve-dialog-cancel": "Annuler"
+}

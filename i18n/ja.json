@@ -1,0 +1,12 @@
+{
+	"@metadata": {
+		"authors": []
+	},
+	"colorizertoolve-description": "この拡張機能はテキスト、背景、および表のセルに色を設定する機能を提供します。",
+	"colorizertoolve-text-color-picker-title": "文字色を選択",
+	"colorizertoolve-background-color-picker-title": "背景色を選択",
+	"colorizertoolve-text-button-label": "文字色...",
+	"colorizertoolve-background-button-label": "背景色...",
+	"colorizertoolve-dialog-ok": "OK",
+	"colorizertoolve-dialog-cancel": "キャンセル"
+}

@@ -1,0 +1,12 @@
+{
+	"@metadata": {
+		"authors": []
+	},
+	"colorizertoolve-description": "Uzantı, metin, arka plan ve tablo hücrelerini renklendirme işlevi sağlar.",
+	"colorizertoolve-text-color-picker-title": "Metin rengi seç",
+	"colorizertoolve-background-color-picker-title": "Arka plan rengi seç",
+	"colorizertoolve-text-button-label": "Metin rengi...",
+	"colorizertoolve-background-button-label": "Arka plan rengi...",
+	"colorizertoolve-dialog-ok": "Tamam",
+	"colorizertoolve-dialog-cancel": "İptal"
+}

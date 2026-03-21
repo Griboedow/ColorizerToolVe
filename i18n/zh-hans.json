@@ -1,0 +1,12 @@
+{
+	"@metadata": {
+		"authors": []
+	},
+	"colorizertoolve-description": "该扩展提供为文本、背景和表格单元格着色的功能。",
+	"colorizertoolve-text-color-picker-title": "选择文字颜色",
+	"colorizertoolve-background-color-picker-title": "选择背景颜色",
+	"colorizertoolve-text-button-label": "文字颜色...",
+	"colorizertoolve-background-button-label": "背景颜色...",
+	"colorizertoolve-dialog-ok": "确定",
+	"colorizertoolve-dialog-cancel": "取消"
+}

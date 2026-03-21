@@ -1,0 +1,12 @@
+{
+	"@metadata": {
+		"authors": []
+	},
+	"colorizertoolve-description": "Rozszerzenie umożliwia kolorowanie tekstu, tła i komórek tabeli.",
+	"colorizertoolve-text-color-picker-title": "Wybierz kolor tekstu",
+	"colorizertoolve-background-color-picker-title": "Wybierz kolor tła",
+	"colorizertoolve-text-button-label": "Kolor tekstu...",
+	"colorizertoolve-background-button-label": "Kolor tła...",
+	"colorizertoolve-dialog-ok": "OK",
+	"colorizertoolve-dialog-cancel": "Anuluj"
+}
