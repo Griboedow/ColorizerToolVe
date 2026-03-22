@@ -117,6 +117,7 @@
     OO.inheritClass( ve.ui.BackgroundColorTool, ve.ui.BaseColorTool );
 
     ve.ui.BackgroundColorTool.static.name = 'colorizeBackground';
+    ve.ui.BackgroundColorTool.static.icon = 'backgroundColor';
     ve.ui.BackgroundColorTool.static.dialogName = 'backgroundColorDialog';
     ve.ui.BackgroundColorTool.static.title = mw.message( 'colorizertoolve-background-button-label' ).text();
 

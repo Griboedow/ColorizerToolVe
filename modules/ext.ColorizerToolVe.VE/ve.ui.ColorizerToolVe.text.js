@@ -74,6 +74,7 @@
     OO.inheritClass( ve.ui.TextColorTool, ve.ui.BaseColorTool );
 
     ve.ui.TextColorTool.static.name = 'colorizeText';
+    ve.ui.TextColorTool.static.icon = 'textColor';
     ve.ui.TextColorTool.static.dialogName = 'textColorDialog';
     ve.ui.TextColorTool.static.title = mw.message( 'colorizertoolve-text-button-label' ).text();
 

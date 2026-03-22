@@ -6,7 +6,7 @@
 	],
 	"url": "https://www.mediawiki.org/wiki/Extension:ColorizerToolVe",
 	"descriptionmsg": "colorizertoolve-description",
-	"license-name": "MIT",
+	"license-name ": "MIT",
 	"type": "parserhook",
 	"requires": {
 		"MediaWiki": ">= 1.43.0",
@@ -70,6 +70,18 @@
             ],
             "messages": ["colorizerToolVE-table-cell-contextitem-label"]
         },
+		"ext.ColorizerToolVe.icons": {
+			"class": "MediaWiki\\ResourceLoader\\ImageModule",
+			"localBasePath": "modules",
+			"remoteExtPath": "ColorizerToolVe/modules",
+			"selectorWithoutVariant": ".oo-ui-icon-{name}",
+			"selectorWithVariant": ".oo-ui-icon-{name}-{variant}",
+			"defaultColor": "#54595d",
+			"images": {
+				"textColor": "icons/textColor.svg",
+				"backgroundColor": "icons/backgroundColor.svg"
+			}
+		},
 		"coloris": {
 			"localBasePath": "modules/coloris",
 			"remoteExtPath": "ColorizerToolVe/modules/coloris",
@@ -94,7 +106,8 @@
 			"dependencies": [
 				"ext.visualEditor.mwcore",
 				"ext.visualEditor.mwtransclusion",
-				"coloris"
+				"coloris",
+				"ext.ColorizerToolVe.icons"
 			],
 			"messages": [
 				"colorizertoolve-text-color-picker-title",
